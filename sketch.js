@@ -125,6 +125,7 @@ function draw(){
 		text("MOVES " + moves, levels[currentLevel].size.x - 100, levels[currentLevel].size.y + 15);
 	} else if(currentLevel == 5){
 		image(_mainmenu, 0, 0);
+		fill(0);
 		textSize(50);
 		text("TOTAL MOVES " + totalmoves, 128, 400);
 		text("Press R to Restart!", 100, 450);
