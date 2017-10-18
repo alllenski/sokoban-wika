@@ -89,12 +89,16 @@ function preload(){
 	_fourthlevel = loadImage("assets/fourth.png");
 	_fifthlevel = loadImage("assets/fifth.png");
 	_mainmenu = loadImage("assets/mainmenu.png");
+	_credits = loadImage("assets/credits.png");
+	_music = loadSound("assets/8bk.mp3");
 	_font = loadFont("font/pixelart.ttf");
 }
 
 function setup(){
 	createCanvas(768, 512);
 	frameRate(60); 
+	_music.setVolume(0.1);
+	_music.loop();
 	mainMenu();
 	textFont(_font);
 }
@@ -124,14 +128,13 @@ function draw(){
 		text("HINT  " + hint, 5, levels[currentLevel].size.y + 15);
 		text("MOVES " + moves, levels[currentLevel].size.x - 100, levels[currentLevel].size.y + 15);
 	} else if(currentLevel == 5){
-		image(_mainmenu, 0, 0);
+		image(_credits, 0, 0);
+		fill(0);
 		textSize(50);
 		text("TOTAL MOVES " + totalmoves, 128, 400);
 		text("Press R to Restart!", 100, 450);
 	} else {
 		image(_mainmenu, 0, 0);
-		textSize(50);
-		text("Press R to Start!", 128, 400);		
 	}
 }
 
@@ -234,18 +237,6 @@ function collide(x1, y1, x2, y2){
 
 function keyReleased(){
 	switch(keyCode){
-		case 87:
-		player.move(0, -1);
-		break;
-		case 83:
-		player.move(0, 1);
-		break;
-		case 65:
-		player.move(-1, 0);
-		break;
-		case 68:
-		player.move(1, 0);
-		break;
 		case 82:
 		pause = false;
 		if(currentLevel == 5){
@@ -253,6 +244,18 @@ function keyReleased(){
 			totalmoves = 0;
 		}
 		loadLevel(currentLevel);
+		break;
+		case 38:
+		player.move(0, -1);
+		break;
+		case 40:
+		player.move(0, 1);
+		break;
+		case 37:
+		player.move(-1, 0);
+		break;
+		case 39:
+		player.move(1, 0);
 		break;
 	}
 }
