@@ -128,11 +128,7 @@ function draw(){
 		text("HINT  " + hint, 5, levels[currentLevel].size.y + 15);
 		text("MOVES " + moves, levels[currentLevel].size.x - 100, levels[currentLevel].size.y + 15);
 	} else if(currentLevel == 5){
-<<<<<<< HEAD
 		image(_credits, 0, 0);
-=======
-		image(_mainmenu, 0, 0);
->>>>>>> origin/master
 		fill(0);
 		textSize(50);
 		text("TOTAL MOVES " + totalmoves, 128, 400);
